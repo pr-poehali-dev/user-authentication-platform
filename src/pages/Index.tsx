@@ -1,6 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
 import Icon from '@/components/ui/icon';
 
+const AUTH_URL = 'https://functions.poehali.dev/a8a4b1cb-28ed-4783-bb58-e9d052965f8b';
+
+async function apiCall(action: string, body: Record<string, string>) {
+  const res = await fetch(AUTH_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action, ...body }),
+  });
+  return res.json();
+}
+
 // ─── Types ───────────────────────────────────────────────────────────────────
 type Screen = 'auth' | 'app';
 type AuthTab = 'login' | 'register';

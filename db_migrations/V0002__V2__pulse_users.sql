@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS t_p16706166_user_authentication_.pulse_users (
+  id SERIAL PRIMARY KEY,
+  phone VARCHAR(20) UNIQUE NOT NULL,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  name VARCHAR(100) NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  premium BOOLEAN DEFAULT FALSE,
+  diamonds INTEGER DEFAULT 100,
+  bio TEXT DEFAULT '',
+  avatar TEXT DEFAULT '😎',
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);

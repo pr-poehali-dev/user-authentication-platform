@@ -1,0 +1,22 @@
+{
+  "tests": [
+    {
+      "name": "Send SMS code to creator",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "send-code", "phone": "6767"},
+      "expectedStatus": 200,
+      "expectedBody": {"success": true},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Login as creator",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "login", "phone": "6767", "password": "creator_secret_2024"},
+      "expectedStatus": 200,
+      "expectedBody": {"success": true},
+      "bodyMatcher": "partial"
+    }
+  ]
+}
